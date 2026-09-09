@@ -31,6 +31,8 @@ All notable changes to this project are documented here. Format follows
 
 ### Changed
 
+- Clarified canonical JSON number serialization and UTF-16 code-unit key ordering in `SPEC.md` for non-JavaScript ports (#117).
+
 - Transcript folding now consumes complete signed records instead of bare `lines` plus
   optional positional metadata. A record keeps its exact line, room, sequence, venue
   timestamp, sender, nonce and signature together; `foldTranscript` verifies the signature
