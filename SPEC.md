@@ -112,6 +112,11 @@ character `\uXXXX`-escaped. The prefix is the version; incompatible revisions ch
 (`tclk2 `), never the field semantics. Decoding is fail-closed: a known frame type with an
 unknown key, a missing field, or a malformed value is rejected, never coerced.
 
+
+Canonical JSON numbers MUST be integers in the JavaScript safe-integer range (`-(2^53 - 1)` through `2^53 - 1`) and MUST be serialized without a fractional part or exponent; any other numeric form is rejected.
+
+Object keys MUST be sorted by UTF-16 code-unit order, matching JavaScript `Object.keys(...).sort()`.
+
 Common field shapes:
 
 | shape | rule |
