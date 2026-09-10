@@ -113,7 +113,7 @@ character `\uXXXX`-escaped. The prefix is the version; incompatible revisions ch
 unknown key, a missing field, or a malformed value is rejected, never coerced.
 
 
-Canonical JSON numbers MUST be integers in the JavaScript safe-integer range (`-(2^53 - 1)` through `2^53 - 1`) and MUST be serialized without a fractional part or exponent; any other numeric form is rejected.
+Canonical JSON numbers MUST be integers from `1` through `2^53 - 1`, and a canonical encoder MUST serialize them with no fractional part and no exponent. A decoder parses JSON before validation, so an equivalent spelling (`1756703600000.0`, `1.7567036e12`) becomes the same safe integer and is not rejected on that basis; it is simply not a form a conforming encoder emits.
 
 Object keys MUST be sorted by UTF-16 code-unit order, matching JavaScript `Object.keys(...).sort()`.
 
